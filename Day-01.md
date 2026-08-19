@@ -22,11 +22,6 @@ basic concepts and how they relate to real computer systems and security.
 - Offensive Security Intro
 - Defensive Security Intro
 - Careers in Cyber
-- Inside a Computer System
-- Computer Types
-- Client-Server Basics
-- Virtualisation Basics
-- Cloud Computing Fundamentals
 
 ## What I Learned
 
@@ -50,7 +45,7 @@ further actions.
 A security professional should first understand what they are dealing with
 instead of immediately attempting to exploit it.
 
-### Targets
+### Target
 
 A target is the system, application, or service being investigated or tested.
 
@@ -68,67 +63,22 @@ application and discovered hidden functionality.
 This introduced me to the idea that attackers often investigate how a web
 application is structured to discover functionality that may not be obvious.
 
-### Computer Systems
+### Ethical Hacking
 
-A computer system consists of multiple components that work together to process,
-store, and communicate information.
+Ethical hacking involves performing security testing with permission.
 
-I learned about the basic components inside a computer and their roles in
-running software and processing data.
+The goal is to identify weaknesses in a controlled and authorized environment
+so that they can be fixed before malicious attackers exploit them.
 
-### Types of Computers
+### Cybersecurity Roles
 
-Computers exist in many forms and are designed for different purposes.
+I was introduced to different areas and career roles within cybersecurity.
 
-Examples include:
+Cybersecurity is a broad field that includes both offensive and defensive
+work, along with many specialized areas.
 
-- Desktop computers
-- Laptops
-- Servers
-- Mobile devices
-- Embedded systems
-- Specialized computing devices
-
-Understanding different types of computers helps provide context for how
-different systems are used and secured.
-
-### Client-Server Model
-
-A client is a device or application that requests a service.
-
-A server is a system that provides a service to clients.
-
-For example, when a browser requests a webpage, the browser acts as the
-client while the web server provides the requested content.
-
-This model is fundamental to understanding how many internet services work.
-
-### Virtualisation
-
-Virtualisation allows one physical computer to run multiple virtual
-computers or environments.
-
-A virtual machine can behave like an independent computer while sharing the
-underlying physical hardware.
-
-Virtualisation is particularly useful in cybersecurity because isolated
-environments can be used for testing and learning.
-
-### Cloud Computing
-
-Cloud computing provides computing resources such as:
-
-- Servers
-- Storage
-- Databases
-- Networking
-- Applications
-
-through remote infrastructure rather than requiring everything to run on
-local hardware.
-
-I learned the basic idea of how cloud computing allows organizations to
-scale computing resources and access infrastructure more efficiently.
+Understanding these different roles helped me see that cybersecurity is much
+broader than simply "hacking."
 
 ## Practical Experience
 
@@ -150,16 +100,13 @@ All activity was performed inside the authorized TryHackMe environment.
 ## Key Takeaways
 
 - Offensive security involves thinking like an attacker to identify weaknesses.
-- Defensive security focuses on protecting and responding to attacks.
+- Defensive security focuses on protecting systems and responding to attacks.
 - Reconnaissance is an important part of security investigation.
 - Web applications may contain functionality that is not immediately visible.
-- Computers consist of hardware and software components working together.
-- Different types of computers serve different purposes.
-- Client-server architecture is fundamental to internet services.
-- Virtualisation allows isolated computing environments to run on shared hardware.
-- Cloud computing provides computing resources through remote infrastructure.
-- Understanding how systems work is an important foundation for understanding
-  how they can be attacked and defended.
+- Ethical hacking requires authorization.
+- Cybersecurity contains many different roles and areas of specialization.
+- Understanding how attackers think is useful for building better defenses.
+- Practical investigation is more valuable than simply memorizing terminology.
 
 ## Learning Approach
 
@@ -182,4 +129,5 @@ Completed
 ## Next Step
 
 Continue through the TryHackMe Pre Security path and build stronger foundations
-in operating systems, Linux, networking, web technologies, and cybersecurity.
+in computer systems, operating systems, Linux, networking, web technologies,
+and cybersecurity.

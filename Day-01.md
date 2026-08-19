@@ -1,12 +1,15 @@
-# Day 01 — Introduction to CTFs
+# Day 01 — Pre Security Foundations
 
 ## Overview
 
-Started my cybersecurity CTF journey with TryHackMe.
+Started my cybersecurity journey with TryHackMe and completed the introductory
+Pre Security material covered during my first learning session.
 
-The purpose of this journey is to explore cybersecurity as a hobby alongside my Computer Science and Engineering studies and other technical interests.
+The goal of this journey is to explore cybersecurity as a hobby alongside my
+Computer Science and Engineering studies and other technical interests.
 
-The focus is on practical learning, experimentation, and understanding how security concepts work rather than simply collecting flags.
+Rather than simply collecting room completions, I focused on understanding the
+basic concepts and how they relate to real computer systems and security.
 
 ## Platform
 
@@ -14,57 +17,149 @@ The focus is on practical learning, experimentation, and understanding how secur
 
 [My TryHackMe Profile](https://tryhackme.com/p/L1QU1D)
 
+## Rooms Completed
+
+- Offensive Security Intro
+- Defensive Security Intro
+- Careers in Cyber
+- Inside a Computer System
+- Computer Types
+- Client-Server Basics
+- Virtualisation Basics
+- Cloud Computing Fundamentals
+
 ## What I Learned
 
-### Capture The Flag (CTF)
+### Offensive Security
 
-A CTF is a cybersecurity challenge designed to teach and test practical security skills.
+Offensive security means thinking like an attacker and safely simulating attacks
+against an authorized system to discover weaknesses.
 
-Challenges can cover areas such as:
+The purpose is to identify weaknesses so they can be fixed or defended against.
 
-- Linux
+### Defensive Security
+
+Defensive security focuses on protecting systems, detecting attacks,
+investigating suspicious activity, and responding to security incidents.
+
+### Reconnaissance
+
+Reconnaissance means gathering information about a target before attempting
+further actions.
+
+A security professional should first understand what they are dealing with
+instead of immediately attempting to exploit it.
+
+### Targets
+
+A target is the system, application, or service being investigated or tested.
+
+In the Offensive Security Intro room, I worked with a simulated banking
+application inside an authorized TryHackMe environment.
+
+### Hidden Web Pages
+
+Web applications can contain pages that are not directly visible through the
+normal navigation.
+
+During the introductory offensive security exercise, I investigated the
+application and discovered hidden functionality.
+
+This introduced me to the idea that attackers often investigate how a web
+application is structured to discover functionality that may not be obvious.
+
+### Computer Systems
+
+A computer system consists of multiple components that work together to process,
+store, and communicate information.
+
+I learned about the basic components inside a computer and their roles in
+running software and processing data.
+
+### Types of Computers
+
+Computers exist in many forms and are designed for different purposes.
+
+Examples include:
+
+- Desktop computers
+- Laptops
+- Servers
+- Mobile devices
+- Embedded systems
+- Specialized computing devices
+
+Understanding different types of computers helps provide context for how
+different systems are used and secured.
+
+### Client-Server Model
+
+A client is a device or application that requests a service.
+
+A server is a system that provides a service to clients.
+
+For example, when a browser requests a webpage, the browser acts as the
+client while the web server provides the requested content.
+
+This model is fundamental to understanding how many internet services work.
+
+### Virtualisation
+
+Virtualisation allows one physical computer to run multiple virtual
+computers or environments.
+
+A virtual machine can behave like an independent computer while sharing the
+underlying physical hardware.
+
+Virtualisation is particularly useful in cybersecurity because isolated
+environments can be used for testing and learning.
+
+### Cloud Computing
+
+Cloud computing provides computing resources such as:
+
+- Servers
+- Storage
+- Databases
 - Networking
-- Web security
-- Cryptography
-- Digital forensics
-- Reverse engineering
-- Privilege escalation
+- Applications
 
-Many challenges contain hidden pieces of information called flags.
+through remote infrastructure rather than requiring everything to run on
+local hardware.
 
-The important part of a CTF is understanding how the flag was discovered, not simply obtaining it.
+I learned the basic idea of how cloud computing allows organizations to
+scale computing resources and access infrastructure more efficiently.
 
-### TryHackMe Rooms
+## Practical Experience
 
-A TryHackMe room is a learning environment focused on a particular cybersecurity topic or set of challenges.
+During the Offensive Security Intro room, I worked inside a controlled
+TryHackMe virtual environment.
 
-Rooms can contain explanations, questions, exercises, and sometimes interactive target machines.
+I investigated a simulated banking website and practiced the basic mindset of
+an ethical hacker:
 
-### Target Machine
+1. Understand the target
+2. Gather information
+3. Investigate available functionality
+4. Look for weaknesses
+5. Identify hidden functionality
+6. Understand how the weakness could be abused
 
-A target machine is a computer provided inside a controlled TryHackMe laboratory environment.
+All activity was performed inside the authorized TryHackMe environment.
 
-It is intentionally designed to be investigated and attacked as part of the exercise.
+## Key Takeaways
 
-### IP Address
-
-An IP address is an address used to identify a device on a network.
-
-When working with a target machine, its IP address allows me to communicate with that machine within the authorized lab environment.
-
-### VPN
-
-A VPN, or Virtual Private Network, can connect my computer to the private TryHackMe laboratory network.
-
-This allows my computer to communicate with target machines that are not directly accessible from the normal internet.
-
-Some TryHackMe environments can instead be accessed through a browser-based machine.
-
-### Flag
-
-A flag is a piece of text hidden somewhere in a challenge.
-
-Finding a flag usually demonstrates that a particular part of the challenge has been completed.
+- Offensive security involves thinking like an attacker to identify weaknesses.
+- Defensive security focuses on protecting and responding to attacks.
+- Reconnaissance is an important part of security investigation.
+- Web applications may contain functionality that is not immediately visible.
+- Computers consist of hardware and software components working together.
+- Different types of computers serve different purposes.
+- Client-server architecture is fundamental to internet services.
+- Virtualisation allows isolated computing environments to run on shared hardware.
+- Cloud computing provides computing resources through remote infrastructure.
+- Understanding how systems work is an important foundation for understanding
+  how they can be attacked and defended.
 
 ## Learning Approach
 
@@ -73,39 +168,18 @@ For this journey, I will focus on understanding rather than memorizing.
 My approach is:
 
 1. Learn the basic concept
-2. Investigate the challenge myself
+2. Investigate the challenge or room myself
 3. Experiment safely
 4. Use hints when necessary
 5. Understand why the technique works
 6. Document important lessons
 7. Apply the concept again when possible
 
-I will use progressive hints rather than immediately looking at complete solutions.
-
-## Tools
-
-No major cybersecurity tools used yet.
-
-Initial tools and platforms:
-
-- TryHackMe
-- Linux terminal
-- GitHub
-
-## Key Takeaways
-
-- CTFs provide a safe way to practice cybersecurity.
-- TryHackMe provides controlled environments for hands-on learning.
-- A target machine is an intentionally vulnerable system provided for the exercise.
-- IP addresses identify devices on a network.
-- VPNs can provide access to private lab networks.
-- Flags are evidence of completing parts of a challenge.
-- Understanding the reasoning behind a solution is more valuable than simply finding the flag.
-
-## Next Step
-
-Begin the first practical TryHackMe challenge and start learning cybersecurity through hands-on investigation.
-
 ## Status
 
 Completed
+
+## Next Step
+
+Continue through the TryHackMe Pre Security path and build stronger foundations
+in operating systems, Linux, networking, web technologies, and cybersecurity.

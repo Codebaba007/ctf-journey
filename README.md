@@ -1,66 +1,148 @@
-# Cybersecurity CTF Journey
+# Cybersecurity / CTF Journey
 
-A personal learning journey exploring cybersecurity through Capture The Flag (CTF) challenges and hands-on security labs.
+My journey from cybersecurity foundations to practical bug bounty hunting.
 
-## About
+## Goal
 
-I am a Computer Science & Engineering student exploring different areas of technology alongside my academic studies and other technical interests.
+Build strong practical cybersecurity, networking, Linux, and web security skills and eventually earn through responsible bug bounty hunting.
 
-This repository is dedicated to my exploration of cybersecurity as a practical hobby. I am using CTFs and intentionally vulnerable labs to learn how systems work, understand common security concepts, and develop better problem-solving skills.
+The focus is on **understanding and practical ability rather than simply completing rooms**.
 
-The goal is not to become an expert overnight or simply collect flags. It is to gradually understand the fundamentals, experiment safely, and have fun learning something outside my primary coursework.
+## Current Position
 
-## Goals
+**Phase:** Phase 1 — Foundations  
+**Current Day:** Day 06  
+**Current Topic:** Active Reconnaissance
 
-- Explore cybersecurity through hands-on challenges
-- Build a foundation in Linux and networking
-- Understand how web applications and common protocols work
-- Learn about common security vulnerabilities
-- Become familiar with cybersecurity tools and techniques
-- Improve practical problem-solving and investigative skills
-- Explore different areas of cybersecurity over time
+## Roadmap
 
-## Primary Platform
+### Phase 1 — Foundations (Months 1–3)
 
-### TryHackMe
+- [x] Linux & Computer Basics
+- [x] Networking
+- [x] Security Fundamentals
+- [x] Passive Reconnaissance
+- [x] Active Reconnaissance
+- [ ] Nmap & Enumeration
+- [ ] Port / Service Enumeration
 
-My primary platform for learning and practicing through guided cybersecurity labs and CTF challenges.
+### Phase 2 — Web Track + First Real Exposure (Months 3–6)
 
-[TryHackMe Profile](https://tryhackme.com/p/L1QU1D)
+- [ ] Web Enumeration
+- [ ] Web Technologies
+- [ ] Burp Suite
+- [ ] OWASP Top 10 — Hands-on
+- [ ] Read Real Disclosed Bug Bounty Reports
 
-## Areas I'm Exploring
+### Phase 3 — Calibration (Months 6–8)
 
-- Linux and command-line fundamentals
-- Networking
-- HTTP and web technologies
-- Web application security
-- Enumeration
-- Cryptography
-- Digital forensics
-- Privilege escalation
-- Scripting and automation
-- Security tools and methodologies
+- [ ] Hack The Box
+- [ ] PortSwigger Web Security Academy
+- [ ] Unpaid VDP Hunting
+- [ ] Report Writing
 
-## Learning Approach
+### Phase 4 — Methodology + Paid Hunting (Months 8–12)
 
-I prefer learning through practical experimentation:
+- [ ] Bug Bounty Methodology
+- [ ] Paid Bug Bounty Programs
+- [ ] Consistent Weekly Hunting
+
+### Phase 5 — Specialization (Month 12+)
+
+- [ ] Advanced Web Security
+- [ ] Choose a Specialization
+- [ ] Advanced Bug Bounty Hunting
+
+## Daily Progress
+
+| Day | Topic | Status |
+|---:|---|---|
+| 01 | Pre Security Foundations | ✅ Completed |
+| 02 | Linux / Computer Fundamentals | ✅ Completed |
+| 03 | Networking Fundamentals | ✅ Completed |
+| 04 | Security / CTF Foundations | ✅ Completed |
+| 05 | Passive Reconnaissance | ✅ Completed |
+| 06 | Active Reconnaissance | ✅ Completed |
+| 07 | Nmap & Enumeration | 🔜 Next |
+
+## TryHackMe
+
+[My TryHackMe Profile](https://tryhackme.com/p/L1QU1D)
+
+TryHackMe is currently the main structured learning platform for the foundation stage of this journey.
+
+As the roadmap progresses, additional platforms and resources will be introduced when they become relevant.
+
+## Daily Writeups
+
+- [Day 01](Day-01.md)
+- [Day 02](Day-02.md)
+- [Day 03](Day-03.md)
+- [Day 04](Day-04.md)
+- [Day 05](Day-05.md)
+- [Day 06](Day-06.md)
+
+## Knowledge Base
+
+- [CHEATSHEET.md](CHEATSHEET.md)
+
+The cheatsheet contains reusable knowledge collected from completed learning sessions, including:
+
+- Tools
+- Commands
+- Command flags
+- Common ports
+- Protocols
+- Reconnaissance concepts
+- Networking concepts
+- Web fundamentals
+- Important lessons and findings
+
+The cheatsheet is updated **after learning a topic**, not before it.
+
+## Learning Philosophy
+
+For this journey, I will focus on understanding rather than memorizing.
+
+My approach is:
 
 1. Learn the basic concept
-2. Apply it in an authorized lab
-3. Investigate the problem myself
+2. Investigate the challenge or room myself
+3. Experiment safely
 4. Use hints when necessary
-5. Understand why the solution works
-6. Document the important lessons
-7. Experiment further when possible
+5. Understand why the technique works
+6. Document important lessons
+7. Apply the concept again when possible
 
-The focus is on understanding rather than simply collecting flags or following walkthroughs.
+The goal is to build skills that transfer beyond a single TryHackMe room.
 
-## Repository Structure
+## Long-Term Direction
 
 ```text
-ctf-journey/
-├── README.md
-├── Day-01.md
-├── Day-02.md
-├── Day-03.md
-└── ...
+Foundations
+    ↓
+Reconnaissance
+    ↓
+Nmap & Enumeration
+    ↓
+Port / Service Enumeration
+    ↓
+Web Enumeration
+    ↓
+Web Technologies
+    ↓
+Burp Suite
+    ↓
+Web Vulnerabilities
+    ↓
+CTFs / Vulnerable Labs
+    ↓
+VDP Practice
+    ↓
+Bug Bounty Methodology
+    ↓
+Paid Bug Bounty Hunting
+    ↓
+Advanced Web Security
+    ↓
+Specialization

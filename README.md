@@ -73,15 +73,6 @@ TryHackMe is currently the main structured learning platform for the foundation 
 
 As the roadmap progresses, additional platforms and resources will be introduced when they become relevant.
 
-## Daily Writeups
-
-- [Day 01](Day-01.md)
-- [Day 02](Day-02.md)
-- [Day 03](Day-03.md)
-- [Day 04](Day-04.md)
-- [Day 05](Day-05.md)
-- [Day 06](Day-06.md)
-
 ## Knowledge Base
 
 - [CHEATSHEET.md](CHEATSHEET.md)

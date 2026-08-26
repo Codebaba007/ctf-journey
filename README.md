@@ -23,7 +23,7 @@ The focus is on **understanding and practical ability rather than simply complet
 - [x] Security Fundamentals
 - [x] Passive Reconnaissance
 - [x] Active Reconnaissance
-- [ ] Nmap & Enumeration
+- [X] Nmap & Enumeration
 - [ ] Port / Service Enumeration
 
 ### Phase 2 — Web Track + First Real Exposure (Months 3–6)

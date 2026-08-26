@@ -75,7 +75,7 @@ As the roadmap progresses, additional platforms and resources will be introduced
 
 ## Knowledge Base
 
-- [CHEATSHEET.md](CHEATSHEET.md)
+- [CHEATSHEET.md](Cheatsheet.md)
 
 The cheatsheet contains reusable knowledge collected from completed learning sessions, including:
 

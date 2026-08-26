@@ -1,93 +1,295 @@
-# Cybersecurity Journey — Tools, Commands & Knowledge Cheatsheet
+# Cybersecurity Journey — Tools & Commands Cheatsheet
 
-A beginner-friendly reference for the tools, commands, websites, concepts, ports, and techniques discovered throughout my cybersecurity / CTF journey.
-
-The goal is **understanding, not memorization**.
-
-This file will grow throughout the journey. New tools, commands, sites, concepts, and lessons should be added as they are encountered.
+> Only tools, commands, and useful information actually learned during the journey.
 
 ---
 
-## 1. Cybersecurity Workflow
+# Day 01 — Cybersecurity Foundations
 
-A simplified security-testing workflow:
+## TryHackMe
+
+**Tool / Platform:** TryHackMe
+
+Used to learn the basic difference between offensive and defensive security and the role of cybersecurity professionals.
+
+## Offensive Security
+
+Focuses on finding and demonstrating weaknesses in systems.
 
 ```text
-Target
-  ↓
 Reconnaissance
-  ↓
+      ↓
 Enumeration
-  ↓
+      ↓
 Vulnerability Discovery
-  ↓
-Validation / Testing
-  ↓
+      ↓
 Exploitation
-  ↓
-Post-Exploitation
-  ↓
-Reporting
 ```
 
-### Reconnaissance
+## Defensive Security
 
-Gather information about a target.
+Focuses on protecting systems, detecting attacks, and responding to incidents.
 
-- **Passive reconnaissance** — collect publicly available information without directly interacting with the target.
-- **Active reconnaissance** — directly communicate with an authorized target to learn what it exposes.
+```text
+Prevention
+Detection
+Monitoring
+Incident Response
+Recovery
+```
 
-### Enumeration
+## CTF
 
-Systematically investigate discovered hosts, ports, services, applications, directories, and other resources.
+Capture The Flag environments provide controlled challenges for practicing cybersecurity skills.
 
-### Vulnerability Discovery
-
-Look for weaknesses in the discovered systems or applications.
-
-### Exploitation
-
-In an authorized environment, demonstrate whether a vulnerability can actually be exploited.
-
-### Reporting
-
-Document the finding, evidence, impact, reproduction steps, and recommended remediation.
+```text
+CTF → Practice in an authorized environment
+```
 
 ---
 
-## 2. Core Networking Vocabulary
+# Day 02 — Linux Fundamentals
 
-### Host
+## Linux Terminal
 
-A device or system connected to a network.
+The terminal provides a command-line interface for interacting with a Linux system.
 
-Examples:
+## Commands Learned
 
-- Computer
-- Server
-- Router
-- Virtual machine
-- Network device
+### `pwd`
 
-### IP Address
+Shows the current working directory.
 
-An address used to identify a network interface.
+```bash
+pwd
+```
+
+### `ls`
+
+Lists files and directories.
+
+```bash
+ls
+ls -l
+ls -la
+```
+
+### `cd`
+
+Changes the current directory.
+
+```bash
+cd directory
+cd ..
+cd ~
+```
+
+### `cat`
+
+Displays file contents.
+
+```bash
+cat file.txt
+```
+
+### `less`
+
+Reads a file page by page.
+
+```bash
+less file.txt
+```
+
+### `head`
+
+Displays the beginning of a file.
+
+```bash
+head file.txt
+```
+
+### `tail`
+
+Displays the end of a file.
+
+```bash
+tail file.txt
+```
+
+### `touch`
+
+Creates an empty file.
+
+```bash
+touch file.txt
+```
+
+### `mkdir`
+
+Creates a directory.
+
+```bash
+mkdir directory
+```
+
+### `cp`
+
+Copies files or directories.
+
+```bash
+cp file.txt backup.txt
+```
+
+### `mv`
+
+Moves or renames files.
+
+```bash
+mv old.txt new.txt
+```
+
+### `rm`
+
+Removes files.
+
+```bash
+rm file.txt
+```
+
+### `rmdir`
+
+Removes an empty directory.
+
+```bash
+rmdir directory
+```
+
+### `find`
+
+Searches for files and directories.
+
+```bash
+find . -name "file.txt"
+```
+
+### `grep`
+
+Searches text for a pattern.
+
+```bash
+grep "text" file.txt
+```
+
+### `echo`
+
+Prints text.
+
+```bash
+echo "Hello"
+```
+
+Write text to a file:
+
+```bash
+echo "Hello" > file.txt
+```
+
+Append text:
+
+```bash
+echo "Another line" >> file.txt
+```
+
+## File Permissions
+
+Linux permissions are commonly represented as:
+
+```text
+r → read
+w → write
+x → execute
+```
 
 Example:
 
 ```text
-10.49.177.254
+-rwxr-xr--
 ```
 
-Think:
+Permissions are associated with:
 
-> **IP address = where the machine can be reached**
+```text
+Owner
+Group
+Others
+```
 
-### Port
+---
 
-A numbered communication endpoint on a host.
+# Day 03 — Networking Fundamentals
 
-Ports range from:
+## Networking
+
+A network allows systems to communicate with each other.
+
+Basic model:
+
+```text
+Device
+  ↓
+Network
+  ↓
+Other Device
+```
+
+## IP Address
+
+Identifies a network interface logically.
+
+Example:
+
+```text
+192.168.1.10
+```
+
+## IPv4
+
+IPv4 addresses contain four decimal octets.
+
+Example:
+
+```text
+192.168.1.10
+```
+
+Each octet ranges from:
+
+```text
+0 - 255
+```
+
+## IPv6
+
+IPv6 uses a much larger address space than IPv4.
+
+Example:
+
+```text
+2001:db8::1
+```
+
+## MAC Address
+
+Identifies a network interface at the local network/link layer.
+
+```text
+IP address  → logical network address
+MAC address → local network interface
+```
+
+## Port
+
+A numbered communication endpoint.
 
 ```text
 0 - 65535
@@ -101,164 +303,163 @@ Port        = door
 Service     = what is behind the door
 ```
 
-Example:
+## TCP
+
+Transmission Control Protocol.
 
 ```text
-10.49.177.254:80
+Connection-oriented
+Reliable
+Ordered
 ```
 
-### Service
+## UDP
 
-Software that listens for and handles network connections.
-
-Example:
+User Datagram Protocol.
 
 ```text
-Port:    80
-Service: HTTP
-Software: Apache
-Version:  2.4.61
+Connectionless
+Lower overhead
 ```
 
-### Protocol
-
-A defined set of rules used for communication.
-
-Examples:
-
-- TCP
-- UDP
-- HTTP
-- HTTPS
-- DNS
-- FTP
-- SSH
-- ICMP
-
-### Packet
-
-A unit of data transmitted across a network. Packets contain headers and data.
-
----
-
-## 3. Common Ports
-
-These are common associations, not absolute rules. A service can run on a different port.
-
-| Port | Common Service | Purpose |
-|---:|---|---|
-| 20 | FTP Data | FTP data connection |
-| 21 | FTP | File Transfer Protocol |
-| 22 | SSH | Secure remote access |
-| 23 | Telnet | Remote terminal |
-| 25 | SMTP | Sending email |
-| 53 | DNS | Domain name resolution |
-| 80 | HTTP | Web traffic |
-| 110 | POP3 | Receiving email |
-| 139 | NetBIOS | Windows networking |
-| 143 | IMAP | Email access |
-| 443 | HTTPS | Encrypted web traffic |
-| 445 | SMB | Windows file/printer sharing |
-| 3389 | RDP | Windows Remote Desktop |
-| 8080 | HTTP Alternative | Common alternative web port |
-
-**Important:** Never assume a port proves what service is running. Verify it.
-
----
-
-## 4. TCP and UDP
-
-### TCP
-
-TCP is connection-oriented and provides mechanisms for reliable, ordered communication.
-
-Common TCP services:
-
-- HTTP
-- HTTPS
-- SSH
-- FTP
-- Telnet
-
-### UDP
-
-UDP is connectionless and has less overhead than TCP.
-
-Common examples:
-
-- DNS
-- DHCP
-- Some real-time applications
-
-### Easy Memory Trick
+Memory:
 
 ```text
-TCP = connection-oriented
-UDP = connectionless
+TCP → connection-oriented
+UDP → connectionless
+```
+
+## DNS
+
+Domain Name System.
+
+Converts names such as:
+
+```text
+example.com
+```
+
+into network addresses such as:
+
+```text
+93.184.216.34
+```
+
+## Common Ports Learned
+
+```text
+21   → FTP
+22   → SSH
+23   → Telnet
+25   → SMTP
+53   → DNS
+80   → HTTP
+443  → HTTPS
+445  → SMB
+3389 → RDP
 ```
 
 ---
 
-## 5. Passive Reconnaissance
+# Day 04 — Security / CTF Foundations
 
-Passive reconnaissance gathers information without directly interacting with the target's systems.
+## Security Concepts
 
-Common sources:
+### Vulnerability
 
-- WHOIS
-- RDAP
-- DNS information
-- Certificate Transparency
-- DNSDumpster
-- Shodan
-- Search engines
-- Public websites
-- Public documentation
+A weakness that can potentially be exploited.
 
-Think:
+### Exploit
 
-> **What can I learn from information that is already publicly available?**
+A technique or code that takes advantage of a vulnerability.
 
----
+### Payload
 
-## 6. WHOIS
+Data or instructions delivered as part of an attack/exploitation process.
 
-WHOIS is traditionally used to retrieve domain registration information.
+### Threat
 
-It may provide:
+Something capable of causing harm to a system or organization.
 
-- Registrar
-- Registration dates
-- Name servers
-- Domain status
-- Registration-related information
+### Risk
 
-Availability and visibility of registration data vary because of privacy protections and registry policies.
+The potential impact of a threat exploiting a vulnerability.
 
----
-
-## 7. RDAP
-
-RDAP stands for **Registration Data Access Protocol**.
-
-It is a modern, structured alternative to traditional WHOIS services.
-
-Easy distinction:
+Basic relationship:
 
 ```text
-WHOIS = traditional registration lookup
-RDAP  = modern structured registration lookup
+Threat
+   ↓
+Vulnerability
+   ↓
+Exploit
+   ↓
+Impact
 ```
+
+## CTF Methodology
+
+A basic approach:
+
+```text
+Understand target
+      ↓
+Gather information
+      ↓
+Enumerate
+      ↓
+Identify weakness
+      ↓
+Exploit when appropriate
+      ↓
+Capture flag
+```
+
+All practical exploitation should remain within authorized environments.
 
 ---
 
-## 8. DNS
+# Day 05 — Passive Reconnaissance
 
-DNS stands for **Domain Name System**.
+## Passive Reconnaissance
 
-It provides the naming system used to locate network services.
+Gathering information about a target without directly interacting with the target's systems.
 
-Conceptually:
+```text
+Public Information
+        ↓
+Reconnaissance
+        ↓
+Target Information
+```
+
+## WHOIS
+
+Used to retrieve domain registration information.
+
+May provide:
+
+```text
+Registrar
+Registration dates
+Name servers
+Domain status
+```
+
+## RDAP
+
+Registration Data Access Protocol.
+
+Modern structured alternative to traditional WHOIS.
+
+```text
+WHOIS → traditional registration lookup
+RDAP  → modern structured registration lookup
+```
+
+## DNS
+
+Domain Name System.
 
 ```text
 example.com
@@ -268,28 +469,59 @@ DNS
 IP address
 ```
 
-Think:
+## DNS Records
 
-> **DNS = the Internet's naming system**
+### A
 
-### Common DNS Record Types
+Maps a hostname to an IPv4 address.
 
-| Record | Purpose |
-|---|---|
-| A | IPv4 address |
-| AAAA | IPv6 address |
-| CNAME | Alias for another hostname |
-| MX | Mail servers |
-| NS | Authoritative name servers |
-| TXT | Public text/configuration information |
+```text
+A → IPv4
+```
 
----
+### AAAA
 
-## 9. DNS Tools
+Maps a hostname to an IPv6 address.
 
-### nslookup
+```text
+AAAA → IPv6
+```
 
-Simple command-line DNS investigation.
+### CNAME
+
+Alias for another hostname.
+
+```text
+CNAME → Alias
+```
+
+### MX
+
+Specifies mail servers.
+
+```text
+MX → Mail server
+```
+
+### NS
+
+Specifies authoritative name servers.
+
+```text
+NS → Name server
+```
+
+### TXT
+
+Contains publicly available text/configuration information.
+
+```text
+TXT → Public text/configuration
+```
+
+## nslookup
+
+Basic DNS lookup:
 
 ```bash
 nslookup example.com
@@ -301,44 +533,42 @@ Query a specific record:
 nslookup -type=MX example.com
 ```
 
-### dig
+## dig
 
-More detailed DNS query tool.
+Basic DNS query:
 
 ```bash
 dig example.com
 ```
 
-Specific record:
+MX:
 
 ```bash
 dig example.com MX
 ```
 
-TXT records:
+TXT:
 
 ```bash
 dig example.com TXT
 ```
 
-Name servers:
+NS:
 
 ```bash
 dig example.com NS
 ```
 
-Easy distinction:
+Memory:
 
 ```text
-nslookup = simple DNS investigation
-dig      = detailed DNS investigation
+nslookup → simple DNS investigation
+dig      → detailed DNS investigation
 ```
 
----
+## Subdomains
 
-## 10. Subdomains
-
-A subdomain exists beneath a main domain.
+Additional hostnames under a domain.
 
 Example:
 
@@ -350,189 +580,123 @@ example.com
 └── dev.example.com
 ```
 
-Subdomains can reveal:
+Subdomains can reveal additional applications and infrastructure.
 
-- Applications
-- APIs
-- Development environments
-- Mail systems
-- Administrative interfaces
-- Other infrastructure
+## Certificate Transparency
 
-A discovered subdomain is information, not automatically a vulnerability.
+Public records of issued TLS certificates.
 
----
+Can help identify:
 
-## 11. Certificate Transparency
+```text
+Domains
+Subdomains
+Related hostnames
+```
 
-Certificate Transparency (CT) provides public records related to issued TLS certificates.
+## DNSDumpster
 
-CT data can sometimes reveal:
+Web-based reconnaissance tool for discovering:
 
-- Domains
-- Subdomains
-- Related hostnames
+```text
+DNS information
+Subdomains
+Hostnames
+Related infrastructure
+```
 
-This makes Certificate Transparency useful during passive reconnaissance.
+## Shodan
 
----
+Search engine for Internet-connected devices and services.
 
-## 12. DNSDumpster
+Can reveal:
 
-DNSDumpster is a web-based reconnaissance service that can help discover:
-
-- DNS information
-- Subdomains
-- Hostnames
-- Related infrastructure
-
-It is one source of reconnaissance information and should be combined with other sources.
-
----
-
-## 13. Shodan
-
-Shodan is a search engine focused on Internet-connected devices and services.
-
-It can provide information such as:
-
-- IP addresses
-- Open ports
-- Service information
-- Software banners
-- Device types
-
-Important:
-
-> Shodan provides information about publicly exposed services; it is not a replacement for authorized testing.
+```text
+IP addresses
+Open ports
+Services
+Software banners
+Device information
+```
 
 ---
 
-## 14. Active Reconnaissance
+# Day 06 — Active Reconnaissance
 
-Active reconnaissance directly communicates with the authorized target.
+## Active Reconnaissance
 
-Tools encountered:
+Directly interacting with an authorized target.
 
-- `ping`
-- `traceroute`
-- `telnet`
-- `nc` / Netcat
-- Nmap
+```text
+Passive Recon
+     ↓
+Public information
 
-Think:
+Active Recon
+     ↓
+Direct communication with target
+```
 
-> **What can I learn by communicating directly with the target?**
+Active reconnaissance can be detected by the target.
 
-Active reconnaissance creates traffic, so it must only be performed against authorized targets.
+## ping
 
----
-
-## 15. Ping
-
-`ping` is commonly used to test whether a host responds to ICMP Echo Requests.
-
-Basic:
+Used to test whether a host responds to ICMP Echo Requests.
 
 ```bash
 ping TARGET_IP
 ```
 
-Send a fixed number of requests:
+Send a specific number of requests:
 
 ```bash
 ping -c 5 TARGET_IP
 ```
 
-### `-c`
-
-Specifies the number of requests.
-
-```bash
-ping -c 5 TARGET_IP
-```
-
-means:
-
-> Send 5 ICMP Echo Requests.
-
-### `-s`
-
-Controls the size of the data carried by the ICMP Echo Request.
+Change ICMP data/payload size:
 
 ```bash
 ping -s 100 TARGET_IP
 ```
 
-### Ping Output
-
-Useful fields include:
-
-- Packets transmitted
-- Packets received
-- Packet loss
-- Round-trip time
-
-Example:
+### `ping` Flags
 
 ```text
-5 packets transmitted, 5 received, 0% packet loss
+-c → number of requests
+-s → ICMP data/payload size
 ```
 
----
+## ICMP
 
-## 16. ICMP
+Internet Control Message Protocol.
 
-ICMP stands for **Internet Control Message Protocol**.
-
-It is used for network diagnostics and error reporting.
-
-`ping` commonly uses:
+Ping commonly uses:
 
 ```text
 ICMP Echo Request
         ↓
+      Target
+        ↓
 ICMP Echo Reply
 ```
 
-Conceptually:
+ICMP Echo header:
 
 ```text
-Your machine
-     │
-     │ Echo Request
-     ↓
-Target
-     │
-     │ Echo Reply
-     ↓
-Your machine
+8 bytes
 ```
 
-### ICMP Echo Request Header
-
-An ICMP Echo Request has an **8-byte ICMP header**.
-
-| Field | Size |
-|---|---:|
-| Type | 1 byte |
-| Code | 1 byte |
-| Checksum | 2 bytes |
-| Identifier | 2 bytes |
-| Sequence Number | 2 bytes |
-| **Total** | **8 bytes** |
-
-Remember:
+Important:
 
 ```text
-ICMP Echo header = 8 bytes
+No ping response ≠ Host is definitely offline
 ```
 
----
+A firewall can filter ICMP traffic.
 
-## 17. Traceroute
+## traceroute
 
-`traceroute` helps discover the network path between your machine and a target.
+Investigates the network path between the source and target.
 
 ```bash
 traceroute TARGET_IP
@@ -541,79 +705,49 @@ traceroute TARGET_IP
 Conceptually:
 
 ```text
-Your machine
-     ↓
+Source
+  ↓
 Hop 1
-     ↓
+  ↓
 Hop 2
-     ↓
+  ↓
 Hop 3
-     ↓
+  ↓
 Target
 ```
 
-Each numbered step is a **hop**.
+A hop can represent an intermediate router or network device.
 
-Traceroute can help identify:
+## Telnet
 
-- Network paths
-- Intermediate routers
-- Latency
-- Where responses stop
-
-A missing response does not necessarily mean the router is broken. Some devices do not respond to traceroute probes.
-
----
-
-## 18. Telnet
-
-Telnet is an older protocol and client used for remote communication.
-
-In reconnaissance, the Telnet client can be used to establish a TCP connection to a specific port.
-
-Example:
+Can establish a TCP connection to a specific port.
 
 ```bash
 telnet TARGET_IP 80
 ```
 
-This means:
+Can be used to interact manually with a service.
 
-```text
-TARGET_IP
-    ↓
-TCP port 80
-```
+## HTTP Through Telnet
 
-If a service is listening, the connection may succeed.
-
----
-
-## 19. Manual HTTP Interaction
-
-HTTP can be manually tested over a TCP connection.
-
-Example request:
+A basic HTTP request can be sent after connecting to a web server.
 
 ```http
 GET / HTTP/1.1
-Host: TARGET_IP
 ```
 
-A server may respond with:
+An HTTP response may expose:
 
 ```text
-HTTP/1.1 200 OK
-Server: Apache/2.4.61
+HTTP version
+Server software
+Server version
+Possible OS information
 ```
 
-This demonstrates that services can expose information through their responses.
+## Banner Grabbing
 
----
-
-## 20. Banner Grabbing
-
-**Banner grabbing** means obtaining information exposed by a network service, often including software and version information.
+Obtaining information exposed by a network service.
 
 Example:
 
@@ -621,29 +755,23 @@ Example:
 Server: Apache/2.4.61 (Debian)
 ```
 
-This can reveal:
+Can reveal:
 
 ```text
-Software = Apache
-Version  = 2.4.61
-OS hint  = Debian
+Software → Apache
+Version  → 2.4.61
+OS hint  → Debian
 ```
 
-A version number is a clue for further research. It does **not** by itself prove that the service is vulnerable.
+## Netcat
 
----
-
-## 21. Netcat
-
-Netcat is commonly invoked as:
+Command:
 
 ```bash
 nc
 ```
 
-It is a general-purpose networking utility.
-
-Basic TCP connection:
+Basic connection:
 
 ```bash
 nc TARGET_IP PORT
@@ -655,263 +783,36 @@ Example:
 nc TARGET_IP 21
 ```
 
-This attempts to connect to TCP port 21.
-
-Netcat can be useful for:
-
-- Testing TCP connections
-- Connecting to services
-- Reading service banners
-- Sending basic data
-- Troubleshooting network communication
-- Learning how protocols behave
-
-Think:
-
-> **Netcat = simple tool for directly interacting with network services**
-
----
-
-## 22. Browser Developer Tools
-
-Modern browsers contain powerful inspection and debugging tools.
-
-### Elements
-
-Inspect HTML/DOM and page structure.
-
-### Console
-
-Interact with JavaScript and view messages/errors.
-
-### Sources
-
-Inspect loaded files such as:
-
-- JavaScript
-- HTML
-- CSS
-- Other resources
-
-### Network
-
-Inspect requests and responses between the browser and server.
-
-The Network tab will become especially important when learning web security and Burp Suite.
-
----
-
-## 23. JavaScript Reconnaissance
-
-Web applications send client-side JavaScript to the browser.
-
-Inspecting JavaScript can sometimes reveal:
-
-- API endpoints
-- Application logic
-- Variables
-- Configuration
-- Client-side data
-- Hidden functionality
-
-This does not automatically mean the application is vulnerable.
-
-Important lesson:
-
-> **Information delivered to the browser can often be inspected by the user.**
-
----
-
-## 24. Nmap
-
-Nmap stands for **Network Mapper**.
-
-It is a major tool for network reconnaissance and enumeration.
-
-It can help discover:
-
-- Live hosts
-- Open ports
-- Services
-- Service versions
-- Operating system information
-- Other network details
-
-Basic idea:
+Netcat can:
 
 ```text
-Target
-  ↓
-Nmap
-  ↓
-Ports
-  ↓
-Services
-  ↓
-Versions
+Test TCP connections
+Connect to services
+Read service banners
+Send basic data
+Interact with network services
 ```
 
-### Basic Scan
+## FTP
+
+Port 21 is commonly associated with FTP.
+
+Netcat can be used to connect to the FTP service and observe its banner:
 
 ```bash
-nmap TARGET_IP
+nc TARGET_IP 21
 ```
 
-### Service/Version Detection
-
-```bash
-nmap -sV TARGET_IP
-```
-
-`-sV` attempts to identify the services and their versions.
-
-### Default Scripts
-
-```bash
-nmap -sC TARGET_IP
-```
-
-`-sC` runs Nmap's default NSE scripts.
-
-NSE stands for **Nmap Scripting Engine**.
-
-### Specific Port
-
-```bash
-nmap -p 80 TARGET_IP
-```
-
-### Multiple Ports
-
-```bash
-nmap -p 21,22,80,443 TARGET_IP
-```
-
-### Port Range
-
-```bash
-nmap -p 1-1000 TARGET_IP
-```
-
-Only use Nmap scans against systems you are authorized to test.
-
----
-
-## 25. Nmap Port States
-
-### Open
-
-A service is listening and accepting connections.
-
-### Closed
-
-The host is reachable, but no service is listening on that port.
-
-### Filtered
-
-A firewall or filtering mechanism prevents Nmap from determining whether the port is open.
+## TCP vs UDP
 
 ```text
-Open     → something is listening
-Closed   → reachable, but no service
-Filtered → result is being blocked/obscured
+TCP → connection-oriented
+UDP → connectionless
 ```
 
----
+## HTTPS
 
-## 26. Enumeration
-
-A useful simplified progression:
-
-```text
-Host discovered
-      ↓
-Ports discovered
-      ↓
-Services discovered
-      ↓
-Versions discovered
-      ↓
-Service-specific enumeration
-      ↓
-Potential vulnerabilities
-```
-
-Example:
-
-```text
-10.49.177.254
-      ↓
-Port 80
-      ↓
-HTTP
-      ↓
-Apache 2.4.61
-      ↓
-Investigate the service
-      ↓
-Research potential weaknesses
-```
-
----
-
-## 27. Reconnaissance vs Enumeration
-
-A useful beginner distinction:
-
-### Reconnaissance
-
-> Gather information about the target.
-
-### Enumeration
-
-> Systematically investigate discovered resources in more detail.
-
-Example:
-
-```text
-Recon
-↓
-"Port 80 is open."
-
-Enumeration
-↓
-"Port 80 is running Apache 2.4.61."
-```
-
----
-
-## 28. HTTP Basics
-
-HTTP is a protocol used for communication between web clients and servers.
-
-Common methods:
-
-```text
-GET
-POST
-PUT
-DELETE
-PATCH
-```
-
-Basic communication:
-
-```text
-Browser
-   │
-   │ HTTP Request
-   ↓
-Web Server
-   │
-   │ HTTP Response
-   ↓
-Browser
-```
-
-### HTTPS
-
-HTTPS is HTTP protected using TLS.
+HTTPS uses TLS encryption.
 
 Common port:
 
@@ -919,346 +820,370 @@ Common port:
 443
 ```
 
+Telnet itself does not provide TLS encryption.
+
 ---
 
-## 29. HTTP Status Codes
+# Day 07–08 — Nmap Live Host Discovery
 
-| Code | Meaning |
-|---:|---|
-| 200 | OK |
-| 201 | Created |
-| 301 | Permanent Redirect |
-| 302 | Temporary Redirect |
-| 400 | Bad Request |
-| 401 | Unauthorized |
-| 403 | Forbidden |
-| 404 | Not Found |
-| 500 | Internal Server Error |
+## Nmap
 
-Easy categories:
+Nmap stands for:
 
 ```text
-2xx = Success
-3xx = Redirect
-4xx = Client-side request problem
-5xx = Server-side problem
+Network Mapper
+```
+
+Nmap is used for network exploration and security auditing.
+
+The focus so far is:
+
+```text
+Host Discovery
+```
+
+Main question:
+
+```text
+Which hosts are alive?
+```
+
+## Target Specification
+
+Single IP:
+
+```bash
+nmap TARGET_IP
+```
+
+IP range:
+
+```bash
+nmap 10.10.12.15-20
+```
+
+CIDR subnet:
+
+```bash
+nmap 10.10.12.13/29
+```
+
+Read targets from a file:
+
+```bash
+nmap -iL list_of_hosts.txt
+```
+
+List targets without scanning:
+
+```bash
+nmap -sL TARGETS
+```
+
+## CIDR
+
+A `/29` network contains:
+
+```text
+8 IP addresses
+```
+
+Example:
+
+```text
+10.10.12.13/29
+```
+
+Network range:
+
+```text
+10.10.12.8 - 10.10.12.15
+```
+
+A `/24` network contains:
+
+```text
+256 IP addresses
+```
+
+Example:
+
+```text
+10.48.182.148/24
+```
+
+Range:
+
+```text
+10.48.182.0 - 10.48.182.255
+```
+
+Important:
+
+```text
+Addresses scanned ≠ Live hosts discovered
+```
+
+Example:
+
+```text
+256 addresses scanned
+7 hosts up
+```
+
+means Nmap checked 256 possible addresses and found 7 live hosts.
+
+## Host Discovery Without Port Scanning
+
+The `-sn` option performs host discovery without performing a port scan.
+
+```bash
+nmap -sn TARGET
+```
+
+Example:
+
+```bash
+nmap -sn 10.48.182.148/24
+```
+
+Purpose:
+
+```text
+Find live hosts
+```
+
+Not:
+
+```text
+Find open ports
+```
+
+## ICMP Host Discovery
+
+### ICMP Echo
+
+```bash
+nmap -PE TARGET
+```
+
+```text
+-PE → ICMP Echo
+```
+
+### ICMP Timestamp
+
+```bash
+nmap -PP TARGET
+```
+
+```text
+-PP → ICMP Timestamp
+```
+
+### ICMP Address Mask
+
+```bash
+nmap -PM TARGET
+```
+
+```text
+-PM → ICMP Address Mask
+```
+
+Memory:
+
+```text
+-PE → Echo
+-PP → Timestamp
+-PM → Address Mask
+```
+
+## TCP Host Discovery
+
+### TCP SYN Ping
+
+```bash
+nmap -PS TARGET
+```
+
+Specific port:
+
+```bash
+nmap -PS23 TARGET
+```
+
+Port 23 is commonly associated with Telnet.
+
+```text
+-PS → TCP SYN ping
+```
+
+### TCP ACK Ping
+
+```bash
+nmap -PA TARGET
+```
+
+```text
+-PA → TCP ACK ping
+```
+
+Privilege difference:
+
+```text
+TCP SYN ping → does not require a privileged account
+TCP ACK ping → requires a privileged account
+```
+
+## ARP Host Discovery
+
+ARP stands for:
+
+```text
+Address Resolution Protocol
+```
+
+Used on local networks to determine the MAC address associated with an IP address.
+
+Conceptually:
+
+```text
+Host A
+  ↓
+ARP Request
+"Who has this IP?"
+  ↓
+Local Network
+  ↓
+Target Host
+  ↓
+ARP Reply
+```
+
+Important:
+
+```text
+ARP broadcasts do not normally cross routers.
+```
+
+## Reverse DNS
+
+Nmap can perform reverse DNS lookups to resolve IP addresses into hostnames.
+
+Conceptually:
+
+```text
+IP Address
+    ↓
+Reverse DNS
+    ↓
+Hostname
+```
+
+Disable DNS resolution:
+
+```bash
+nmap -n TARGET
+```
+
+```text
+-n → disable DNS resolution
+```
+
+## Nmap Flags Learned
+
+```text
+-sn → host discovery without port scanning
+-sL → list targets without scanning
+-iL → read targets from a file
+-n  → disable DNS resolution
+
+-PE → ICMP Echo discovery
+-PP → ICMP Timestamp discovery
+-PM → ICMP Address Mask discovery
+
+-PS → TCP SYN ping
+-PA → TCP ACK ping
 ```
 
 ---
 
-## 30. Web Security Concepts — Coming Later
+# Quick Command Reference
 
-These are concepts to learn progressively rather than memorize now:
+## Linux
 
-- Cookies
-- Sessions
-- Authentication
-- Authorization
-- Headers
-- Parameters
-- Forms
-- APIs
-- JSON
-- REST
-- WebSockets
-- CORS
-- CSRF
-- XSS
-- SQL Injection
-- IDOR
-- SSRF
-- File Upload
-- Path Traversal
-- Command Injection
-- SSTI
-- Business Logic vulnerabilities
+```bash
+pwd
+ls
+ls -l
+ls -la
+cd directory
+cd ..
+cd ~
+cat file.txt
+less file.txt
+head file.txt
+tail file.txt
+touch file.txt
+mkdir directory
+cp file.txt backup.txt
+mv old.txt new.txt
+rm file.txt
+rmdir directory
+find . -name "file.txt"
+grep "text" file.txt
+echo "Hello"
+echo "Hello" > file.txt
+echo "Another line" >> file.txt
+```
 
----
-
-## 31. Tool Map
-
-| Question | Tool |
-|---|---|
-| Domain registration information? | WHOIS / RDAP |
-| DNS information? | `dig` / `nslookup` |
-| Public subdomains? | Certificate Transparency / DNSDumpster |
-| Internet-exposed services? | Shodan |
-| Does the host respond to ICMP? | `ping` |
-| What path does traffic take? | `traceroute` |
-| Connect to one TCP port? | `telnet` |
-| Make a simple network connection? | `nc` |
-| Inspect browser-side code? | Developer Tools |
-| Discover open ports? | Nmap |
-| Identify service versions? | `nmap -sV` |
-| Run default Nmap scripts? | `nmap -sC` |
-
----
-
-## 32. Command Quick Reference
-
-### DNS
+## DNS
 
 ```bash
 nslookup example.com
+nslookup -type=MX example.com
+
 dig example.com
 dig example.com MX
 dig example.com TXT
+dig example.com NS
 ```
 
-### Connectivity
+## Network
 
 ```bash
 ping TARGET_IP
 ping -c 5 TARGET_IP
 ping -s 100 TARGET_IP
-```
-
-### Network Path
-
-```bash
 traceroute TARGET_IP
 ```
 
-### Service Interaction
+## Service Interaction
 
 ```bash
 telnet TARGET_IP 80
+nc TARGET_IP PORT
 nc TARGET_IP 21
 ```
 
-### Nmap
+## Nmap
 
 ```bash
 nmap TARGET_IP
-nmap -sV TARGET_IP
-nmap -sC TARGET_IP
-nmap -p 80 TARGET_IP
-nmap -p 21,22,80,443 TARGET_IP
-nmap -p 1-1000 TARGET_IP
+nmap 10.10.12.15-20
+nmap 10.10.12.13/29
+nmap -iL list_of_hosts.txt
+nmap -sL TARGETS
+
+nmap -sn TARGET
+nmap -PE TARGET
+nmap -PP TARGET
+nmap -PM TARGET
+
+nmap -PS TARGET
+nmap -PS23 TARGET
+nmap -PA TARGET
+
+nmap -n TARGET
 ```
-
----
-
-## 33. Command Flag Memory
-
-| Command | Flag | Meaning |
-|---|---|---|
-| `ping` | `-c` | Number of requests |
-| `ping` | `-s` | ICMP data/payload size |
-| `nmap` | `-p` | Specify ports |
-| `nmap` | `-sV` | Service/version detection |
-| `nmap` | `-sC` | Default NSE scripts |
-
----
-
-## 34. Sites & Resources
-
-| Resource | Purpose |
-|---|---|
-| TryHackMe | Guided cybersecurity labs |
-| WHOIS services | Domain registration research |
-| RDAP | Structured registration data |
-| DNSDumpster | DNS/subdomain reconnaissance |
-| Shodan | Internet-exposed service/device discovery |
-| Certificate Transparency | Certificate/domain discovery |
-| Browser Developer Tools | Web application inspection |
-
-This section will grow as new resources are discovered.
-
----
-
-## 35. Useful Recon Questions
-
-### Target
-
-- What is the target?
-- What is its IP?
-- What domains are associated with it?
-
-### Network
-
-- Is the host reachable?
-- What ports are open?
-- What services are running?
-
-### Services
-
-- What software is running?
-- What version?
-- Does it expose a banner?
-
-### Web Application
-
-- Is HTTP/HTTPS available?
-- What technology is being used?
-- What pages exist?
-- What endpoints exist?
-- What does the browser receive?
-
-### Security
-
-- What information is exposed?
-- What should I investigate further?
-- Is there a potential vulnerability?
-- Can it be safely validated within the authorized scope?
-
----
-
-## 36. Safety Rule
-
-All active security testing must be performed against systems where I have explicit authorization.
-
-Examples:
-
-- TryHackMe machines
-- CTF environments
-- My own systems
-- Authorized bug bounty programs within their defined scope
-
-Before running an active scan, ask:
-
-> **Am I authorized to test this target?**
-
-If the answer is unclear, stop and verify the scope.
-
----
-
-## 37. Mental Model
-
-Do not memorize tools as isolated commands.
-
-Think in questions:
-
-```text
-"What is this domain?"
-        ↓
-WHOIS / RDAP / DNS
-
-"Are there other domains?"
-        ↓
-Certificate Transparency / DNSDumpster
-
-"Is this host reachable?"
-        ↓
-ping
-
-"How does traffic reach it?"
-        ↓
-traceroute
-
-"What ports are available?"
-        ↓
-Nmap
-
-"What services are running?"
-        ↓
-Nmap / service interaction
-
-"What software/version is running?"
-        ↓
-Nmap -sV / banner grabbing
-
-"What does the web application expose?"
-        ↓
-Browser Developer Tools
-
-"Is there a weakness?"
-        ↓
-Vulnerability research + authorized testing
-```
-
-The tools are ways of answering questions.
-
----
-
-## 38. Personal Learning Notes
-
-As the journey continues, add:
-
-- New tools
-- Important commands
-- Useful flags
-- Common ports
-- Protocols
-- Websites
-- Security concepts
-- Interesting findings
-- Mistakes and lessons learned
-- Techniques practiced
-
-For every important tool, I should eventually be able to answer:
-
-> **What does it do?**
-
-> **Why would I use it?**
-
-> **What does its output mean?**
-
-> **When should I use something else instead?**
-
----
-
-## 39. Current Journey Progress
-
-### Completed
-
-```text
-Day 01 → Cybersecurity Foundations
-Day 02 → Linux / System Fundamentals
-Day 03 → Networking Fundamentals
-Day 04 → Security / CTF Foundations
-Day 05 → Passive Reconnaissance
-Day 06 → Active Reconnaissance
-```
-
-### Current Direction
-
-```text
-Foundations
-    ↓
-Passive Recon
-    ↓
-Active Recon
-    ↓
-Nmap / Host Discovery
-    ↓
-Port Scanning
-    ↓
-Service Enumeration
-    ↓
-Web Enumeration
-    ↓
-Web Security
-    ↓
-Vulnerability Discovery
-    ↓
-Bug Bounty Practice
-```
-
----
-
-## 40. Final Reminder
-
-I do not need to remember every tool.
-
-I need to understand the relationship between them.
-
-```text
-Target
-  ↓
-What do I know?
-  ↓
-What don't I know?
-  ↓
-Which question should I ask?
-  ↓
-Which tool can answer it?
-  ↓
-What does the output mean?
-  ↓
-What should I investigate next?
-```
-
-The goal is not to memorize a hundred commands.
-
-**Learn the question first. Learn the tool second. Learn the command third. Understand the output last.**

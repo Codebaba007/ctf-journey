@@ -23,7 +23,7 @@ The focus is on **understanding and practical ability rather than simply complet
 - [x] Security Fundamentals
 - [x] Passive Reconnaissance
 - [x] Active Reconnaissance
-- [ ] Nmap & Enumeration
+- [X] Nmap & Enumeration
 - [ ] Port / Service Enumeration
 
 ### Phase 2 — Web Track + First Real Exposure (Months 3–6)
@@ -73,18 +73,9 @@ TryHackMe is currently the main structured learning platform for the foundation 
 
 As the roadmap progresses, additional platforms and resources will be introduced when they become relevant.
 
-## Daily Writeups
-
-- [Day 01](Day-01.md)
-- [Day 02](Day-02.md)
-- [Day 03](Day-03.md)
-- [Day 04](Day-04.md)
-- [Day 05](Day-05.md)
-- [Day 06](Day-06.md)
-
 ## Knowledge Base
 
-- [CHEATSHEET.md](CHEATSHEET.md)
+- [CHEATSHEET.md](Cheatsheet.md)
 
 The cheatsheet contains reusable knowledge collected from completed learning sessions, including:
 

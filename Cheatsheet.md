@@ -1187,3 +1187,762 @@ nmap -PA TARGET
 
 nmap -n TARGET
 ```
+---
+
+# Day 09–10 — Further Nmap
+
+## Nmap Scanning
+
+Nmap can be used to discover open ports and identify services running on a target.
+
+## Port Scanning
+
+Scan a specific port:
+
+```bash
+nmap -p 80 TARGET_IP
+```
+
+Scan multiple ports:
+
+```bash
+nmap -p 22,80,443 TARGET_IP
+```
+
+Scan a range of ports:
+
+```bash
+nmap -p 1-1000 TARGET_IP
+```
+
+Scan all TCP ports:
+
+```bash
+nmap -p- TARGET_IP
+```
+
+## TCP Connect Scan
+
+```bash
+nmap -sT TARGET_IP
+```
+
+```text
+-sT → TCP Connect Scan
+```
+
+Completes the TCP connection with the target.
+
+## TCP SYN Scan
+
+```bash
+nmap -sS TARGET_IP
+```
+
+```text
+-sS → TCP SYN Scan
+```
+
+Sends a SYN packet and analyzes the response without completing the normal TCP connection.
+
+```text
+SYN
+ ↓
+SYN/ACK → Open
+RST     → Closed
+```
+
+## UDP Scan
+
+```bash
+nmap -sU TARGET_IP
+```
+
+```text
+-sU → UDP Scan
+```
+
+UDP is connectionless, so UDP scanning works differently from TCP scanning and can take longer.
+
+## Service and Version Detection
+
+```bash
+nmap -sV TARGET_IP
+```
+
+```text
+-sV → Service/version detection
+```
+
+Attempts to identify the service and version running on an open port.
+
+## OS Detection
+
+```bash
+nmap -O TARGET_IP
+```
+
+```text
+-O → OS detection
+```
+
+Attempts to identify the target's operating system.
+
+## Aggressive Scan
+
+```bash
+nmap -A TARGET_IP
+```
+
+```text
+-A → Aggressive scan
+```
+
+Enables several advanced detection features, including OS detection, version detection, script scanning, and traceroute.
+
+## Timing
+
+Nmap provides timing templates:
+
+```bash
+nmap -T0 TARGET_IP
+nmap -T1 TARGET_IP
+nmap -T2 TARGET_IP
+nmap -T3 TARGET_IP
+nmap -T4 TARGET_IP
+nmap -T5 TARGET_IP
+```
+
+```text
+T0 → Very slow
+T1 → Slow
+T2 → Polite
+T3 → Normal
+T4 → Aggressive
+T5 → Very aggressive
+```
+
+## Port States
+
+```text
+open
+closed
+filtered
+```
+
+```text
+Open
+→ A service is listening on the port.
+
+Closed
+→ The port is reachable but no service is listening.
+
+Filtered
+→ Filtering prevents Nmap from determining the port state.
+```
+
+## Nmap Scripting Engine
+
+NSE stands for:
+
+```text
+Nmap Scripting Engine
+```
+
+NSE scripts extend Nmap's capabilities.
+
+Run the default scripts:
+
+```bash
+nmap -sC TARGET_IP
+```
+
+```text
+-sC → Default NSE scripts
+```
+
+Run a specific script:
+
+```bash
+nmap --script SCRIPT_NAME TARGET_IP
+```
+
+List available scripts:
+
+```bash
+ls /usr/share/nmap/scripts/
+```
+
+## Useful Scan Combinations
+
+Service/version detection:
+
+```bash
+nmap -sV TARGET_IP
+```
+
+Default scripts + version detection:
+
+```bash
+nmap -sC -sV TARGET_IP
+```
+
+All ports + version detection:
+
+```bash
+nmap -p- -sV TARGET_IP
+```
+
+All ports + default scripts + version detection:
+
+```bash
+nmap -p- -sC -sV TARGET_IP
+```
+
+## Saving Nmap Results
+
+Normal output:
+
+```bash
+nmap -oN scan.txt TARGET_IP
+```
+
+```text
+-oN → Normal output
+```
+
+XML output:
+
+```bash
+nmap -oX scan.xml TARGET_IP
+```
+
+```text
+-oX → XML output
+```
+
+Grepable output:
+
+```bash
+nmap -oG scan.txt TARGET_IP
+```
+
+```text
+-oG → Grepable output
+```
+
+Save multiple output formats:
+
+```bash
+nmap -oA scan TARGET_IP
+```
+
+```text
+-oA → Save output in multiple formats
+```
+
+## Nmap Flag Reference
+
+```text
+-p       → Specify ports
+-p-      → Scan all ports
+
+-sT      → TCP Connect Scan
+-sS      → TCP SYN Scan
+-sU      → UDP Scan
+
+-sV      → Service/version detection
+-O       → OS detection
+-A       → Aggressive scan
+-sC      → Default NSE scripts
+
+-T0      → Very slow timing
+-T1      → Slow timing
+-T2      → Polite timing
+-T3      → Normal timing
+-T4      → Aggressive timing
+-T5      → Very aggressive timing
+
+-oN      → Normal output
+-oX      → XML output
+-oG      → Grepable output
+-oA      → Multiple output formats
+
+--script → Run an NSE script
+```
+# Day 11 — Linux Fundamentals, Hashing & File Operations
+
+## Linux File Searching
+
+### Find a File by Name
+
+```bash
+find / -type f -name "filename"
+```
+
+### Find a Directory by Name
+
+```bash
+find / -type d -name "directory"
+```
+
+### Find Files by Size
+
+```bash
+find /home -type f -size 52k
+```
+
+Common size suffixes:
+
+```text
+c = bytes
+k = kilobytes
+M = megabytes
+G = gigabytes
+```
+
+### Find Files Owned by a User
+
+```bash
+find /home -type f -user username
+```
+
+### Suppress Permission Errors
+
+```bash
+find / -type f -name "filename" 2>/dev/null
+```
+
+---
+
+## Searching File Contents
+
+### Recursive Case-Insensitive Search
+
+```bash
+grep -iRl "keyword" /path
+```
+
+Options:
+
+```text
+-i = case-insensitive
+-R = recursive
+-l = show matching filenames
+```
+
+---
+
+## File Operations
+
+### Copy
+
+```bash
+cp file.txt /destination/
+```
+
+### Copy a File with Spaces
+
+```bash
+cp "encryption keys" /home/john/logs
+```
+
+### Move
+
+```bash
+mv file.txt /destination/
+```
+
+### Rename
+
+```bash
+mv oldname.txt newname.txt
+```
+
+### Move Multiple Files
+
+```bash
+mv file1 file2 file3 -t /destination/
+```
+
+### Move Everything from Current Directory
+
+```bash
+mv * /destination/
+```
+
+### Rename a Filename Beginning with `-`
+
+```bash
+mv -- -logs -newlogs
+```
+
+### Create a File
+
+```bash
+touch file.txt
+```
+
+### Create a Directory
+
+```bash
+mkdir directory
+```
+
+### Read a File
+
+```bash
+cat file.txt
+```
+
+### Edit a File
+
+```bash
+nano file.txt
+```
+
+---
+
+## SSH
+
+### Connect to a Remote Machine
+
+```bash
+ssh username@MACHINE_IP
+```
+
+Example:
+
+```bash
+ssh sarah@MACHINE_IP
+```
+
+Important:
+
+```text
+AttackBox IP ≠ Lab Machine IP
+```
+
+When working with TryHackMe, make sure the target IP belongs to the **Lab Machine**.
+
+---
+
+## SCP
+
+### Copy a Local File to a Remote Machine
+
+```bash
+scp file.txt username@MACHINE_IP:/destination/
+```
+
+Example:
+
+```bash
+scp script.py john@192.168.10.5:/home/john/scripts
+```
+
+### SCP Mental Model
+
+```text
+scp
+ ↓
+source
+ ↓
+username@IP
+ ↓
+destination
+```
+
+---
+
+# Hashing
+
+## Common Hash Types Encountered
+
+```text
+MD4
+MD5
+SHA-1
+SHA-256
+```
+
+### Important
+
+```text
+Hashing ≠ Encryption
+```
+
+Hashing is generally designed as a one-way transformation.
+
+---
+
+## Identify a Hash
+
+```bash
+hash-identifier HASH
+```
+
+Example:
+
+```bash
+hash-identifier f9d4049dd6a4dc35d40e5265954b2a46
+```
+
+Hash identification tools provide likely possibilities; they should not automatically be treated as definitive.
+
+---
+
+# John the Ripper
+
+## Basic Wordlist Attack
+
+```bash
+john --wordlist=/path/to/wordlist hash.txt
+```
+
+### Show Cracked Passwords
+
+```bash
+john --show hash.txt
+```
+
+### Specify a Hash Format
+
+```bash
+john --format=FORMAT --wordlist=/path/to/wordlist hash.txt
+```
+
+Example:
+
+```bash
+john --format=raw-md4 --wordlist=/usr/share/wordlists/rockyou.txt hash.txt
+```
+
+### Basic John Workflow
+
+```text
+Hash
+ ↓
+Identify format
+ ↓
+Select wordlist
+ ↓
+Run John
+ ↓
+john --show
+```
+
+---
+
+# Base64
+
+## Decode a Base64 File
+
+```bash
+base64 -d encoded.txt
+```
+
+## Important Distinction
+
+```text
+Encoding
+    ↓
+Changes representation
+
+Encryption
+    ↓
+Protects data using a key/password
+```
+
+Base64 is **not encryption**.
+
+---
+
+# GPG
+
+## Encrypt a File Using AES-128
+
+```bash
+gpg --cipher-algo AES-128 --symmetric history_logs.txt
+```
+
+This produces:
+
+```text
+history_logs.txt.gpg
+```
+
+### Decrypt a GPG File
+
+```bash
+gpg history_logs.txt.gpg
+```
+
+### Basic GPG Workflow
+
+```text
+Readable file
+     ↓
+    GPG
+     ↓
+Encrypted .gpg file
+     ↓
+Password
+     ↓
+Decrypted file
+```
+
+---
+
+# Cracking GPG Files
+
+## Convert a GPG File for John
+
+```bash
+gpg2john encrypted.gpg > hash.txt
+```
+
+## Crack with John
+
+```bash
+john --format=gpg --wordlist=/path/to/wordlist hash.txt
+```
+
+## Show the Recovered Password
+
+```bash
+john --show hash.txt
+```
+
+### GPG Cracking Workflow
+
+```text
+encrypted.gpg
+      ↓
+   gpg2john
+      ↓
+    hash.txt
+      ↓
+John + wordlist
+      ↓
+   password
+      ↓
+     gpg
+      ↓
+ decrypted file
+```
+
+---
+
+# MySQL / SQL
+
+## Start MySQL
+
+```bash
+service mysql start
+```
+
+## Stop MySQL
+
+```bash
+service mysql stop
+```
+
+## Connect to MySQL
+
+```bash
+mysql -u username -p
+```
+
+## Connect to a Remote MySQL Database
+
+```bash
+mysql -u username -p -h HOST_IP
+```
+
+## Load a SQL File
+
+Inside MySQL:
+
+```sql
+source database.sql;
+```
+
+## List Databases
+
+```sql
+SHOW DATABASES;
+```
+
+## Select a Database
+
+```sql
+USE database_name;
+```
+
+## List Tables
+
+```sql
+SHOW TABLES;
+```
+
+## Inspect Table Structure
+
+```sql
+DESCRIBE table_name;
+```
+
+## Read Table Contents
+
+```sql
+SELECT * FROM table_name;
+```
+
+---
+
+# Useful Linux Investigation Pattern
+
+When looking for something unknown:
+
+```text
+1. Locate it
+   ↓
+find
+
+2. Inspect it
+   ↓
+cat
+
+3. Search its contents
+   ↓
+grep
+
+4. Identify what it is
+   ↓
+hash-identifier / file / other tools
+
+5. Process or crack it when appropriate
+   ↓
+John / gpg / other tools
+
+6. Follow the information
+   ↓
+SSH / SQL / filesystem navigation
+```
+
+---
+
+# Day 11 Security Lessons
+
+- Filesystem enumeration is a core Linux skill.
+- `find` can search based on multiple properties.
+- `grep` can reveal information hidden inside files.
+- SSH provides remote command-line access.
+- SCP provides secure file transfer.
+- Hashes can be identified and attacked with wordlists when appropriate.
+- John the Ripper is useful for password recovery in authorized labs.
+- Base64 is encoding, not encryption.
+- GPG provides file encryption and decryption.
+- GPG files can be converted into John-compatible hashes using `gpg2john`.
+- SQL databases can be investigated directly from Linux.
+- Linux fundamentals are foundational for later enumeration and privilege-escalation work.

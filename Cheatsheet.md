@@ -2167,3 +2167,387 @@ A basic reconnaissance mindset is:
 - `sudo -l` is useful for investigating privilege-escalation opportunities.
 - Misconfigured sudo permissions can allow a low-privileged user to perform actions as root.
 - Complex CTFs combine many individual concepts, making strong fundamentals important before attempting more advanced machines.
+# Security Engineering Fundamentals
+
+## Security Engineer
+
+A security engineer helps protect an organization's systems, networks, applications, data, and overall security posture. The role involves designing secure systems, reducing cybersecurity risk, implementing security controls, assessing weaknesses, maintaining security policies, supporting compliance, and continuously improving security.
+
+### Security Engineer Mindset
+
+Security engineering is not simply about attacking systems. The mindset is:
+
+    Understand the system
+          ↓
+    Identify assets
+          ↓
+    Identify threats and weaknesses
+          ↓
+    Assess risk
+          ↓
+    Design security controls
+          ↓
+    Implement controls
+          ↓
+    Test and assess
+          ↓
+    Monitor
+          ↓
+    Improve
+
+The goal is to maintain security while still allowing the organization to achieve its business objectives.
+
+## Asset Management
+
+An organization needs to know what assets it owns before it can properly protect them.
+
+An asset inventory can contain:
+
+- Asset name
+- Asset type
+- IP address
+- Physical or logical location
+- Network position
+- Applications
+- Access permissions
+- Owner
+
+Basic principle:
+
+    You cannot properly secure what you do not know exists.
+
+## Security Policies
+
+Security policies define an organization's security requirements, expectations, and rules.
+
+Security engineers can help:
+
+- Create policies
+- Implement policies
+- Maintain policies
+- Evaluate compliance
+- Update policies as the organization changes
+
+### Security Policy Exceptions
+
+Sometimes a business requirement makes it impossible or impractical to follow a security policy exactly.
+
+The organization can use an **exception** process.
+
+    Business requirement
+          ↓
+    Security policy conflict
+          ↓
+    Evaluate risk
+          ↓
+    Approve exception if justified
+          ↓
+    Apply mitigating controls
+          ↓
+    Monitor the risk
+
+An exception does not mean ignoring security. It means formally accepting a deviation while understanding and managing the associated risk.
+
+## Secure by Design
+
+**Secure by Design** means considering security from the beginning of a system's design and development rather than trying to add security after the system is already built.
+
+Security can be incorporated into:
+
+- Network architecture
+- Operating systems
+- Applications
+- Active Directory
+- Software development
+- Authentication
+- Authorization
+- Data protection
+
+Basic principle:
+
+    Design security in
+    rather than
+    add security later
+
+## Security Assessment
+
+Security assessments evaluate whether systems and security controls are working correctly and identify weaknesses that need remediation.
+
+Security can be continuously assessed through:
+
+- Security assessments
+- Audits
+- Vulnerability assessments
+- Red-team exercises
+- Purple-team exercises
+- Control testing
+
+Security is not a one-time task because systems, threats, technologies, and business requirements continuously change.
+
+## Humans and Security
+
+### Weakest Link
+
+**Humans** are considered the weakest link in an organization's security.
+
+Human-related risks can include:
+
+- Phishing
+- Social engineering
+- Weak passwords
+- Accidental data disclosure
+- Unsafe security practices
+- Misconfiguration
+- Lack of security awareness
+
+Security awareness and training can reduce these risks.
+
+## Change Management
+
+Organizations continuously change their infrastructure, applications, employees, technologies, and business processes.
+
+**Change management** helps keep security aligned with these changes.
+
+Basic process:
+
+    Proposed change
+          ↓
+    Assess security impact
+          ↓
+    Review and approve
+          ↓
+    Implement
+          ↓
+    Verify
+          ↓
+    Update security controls/documentation
+
+Security must evolve alongside the organization.
+
+## Compliance and Auditing
+
+Organizations may need to meet regulatory, industry, or organizational security requirements.
+
+Examples:
+
+- PCI-DSS
+- HIPAA
+- SOC 2
+- ISO 27001
+- NIST 800-53
+
+### Auditing
+
+An audit checks whether an organization follows required controls, policies, standards, or regulations.
+
+Security engineers may help remediate issues discovered during audits.
+
+## Security Tooling
+
+### SIEM
+
+**Security Information and Event Management**
+
+Collects and analyzes security logs and events from multiple systems.
+
+Used for:
+
+- Centralized logging
+- Security monitoring
+- Detection
+- Investigation
+- Alerting
+
+### Firewall
+
+Controls network traffic according to defined security rules.
+
+### WAF
+
+**Web Application Firewall**
+
+Protects web applications by inspecting and filtering HTTP/HTTPS traffic.
+
+### EDR
+
+**Endpoint Detection and Response**
+
+Monitors endpoints for suspicious behavior and supports detection, investigation, and response.
+
+## Tabletop Exercise
+
+A **tabletop exercise** is a simulated security incident where teams discuss how they would respond without conducting a real attack.
+
+Example:
+
+    Simulated phishing attack
+          ↓
+    Team discusses what happened
+          ↓
+    Identify each person's responsibility
+          ↓
+    Follow incident-response procedures
+          ↓
+    Identify weaknesses
+          ↓
+    Improve the response plan
+
+Tabletop exercises help organizations test their preparedness.
+
+## Disaster Recovery
+
+**Disaster Recovery (DR)** focuses on restoring technology, systems, and services after a disruptive event.
+
+Possible events include:
+
+- Cyberattacks
+- Ransomware
+- Hardware failures
+- Data loss
+- Infrastructure failures
+- Natural disasters
+
+Basic idea:
+
+    Disruption
+        ↓
+    Recover systems
+        ↓
+    Restore services
+        ↓
+    Return to normal operations
+
+## Business Continuity
+
+**Business Continuity (BC)** focuses on keeping critical business operations functioning during and after a disruptive event.
+
+Important distinction:
+
+    Disaster Recovery
+    = Restore technology and services
+
+    Business Continuity
+    = Keep the business operating
+
+During a disaster or crisis, **executive management's priority is business continuity**.
+
+## Security and Business Requirements
+
+Security engineers must balance security with business requirements.
+
+Security is not simply:
+
+    "Make everything as restrictive as possible."
+
+A security solution should consider:
+
+- Security
+- Risk
+- Cost
+- Usability
+- Availability
+- Performance
+- Business requirements
+- Operational requirements
+
+The goal is an appropriate security posture that protects the organization while allowing it to operate.
+
+## Security Engineering vs Penetration Testing
+
+### Security Engineer
+
+Focuses on:
+
+- Designing security
+- Implementing controls
+- Maintaining security
+- Assessing risk
+- Improving security posture
+- Supporting business objectives
+
+Mindset:
+
+    "How do we design and maintain this securely?"
+
+### Penetration Tester
+
+Focuses on:
+
+- Finding vulnerabilities
+- Exploiting weaknesses
+- Demonstrating impact
+- Reporting security findings
+
+Mindset:
+
+    "How can I break this?"
+
+Both roles are related, but they approach security from different perspectives.
+
+## Quick Revision
+
+**What helps an organization manage known digital assets?**
+
+    Asset Inventory
+
+**What can be used when a business need conflicts with a security policy?**
+
+    Exception
+
+**What security philosophy incorporates security from the beginning?**
+
+    Secure by Design
+
+**What is considered the weakest link in organizational security?**
+
+    Humans
+
+**What helps security remain aligned as an organization changes?**
+
+    Change Management
+
+**What exercise simulates an incident without conducting a real attack?**
+
+    Tabletop Exercise
+
+**What is management's priority during a disaster or crisis?**
+
+    Business Continuity
+
+**What restores systems and services after a disruption?**
+
+    Disaster Recovery
+
+**What helps centrally collect and analyze security events?**
+
+    SIEM
+
+**What protects web applications by filtering HTTP/HTTPS traffic?**
+
+    WAF
+
+**What monitors endpoints for suspicious activity?**
+
+    EDR
+
+## Security Engineering Workflow
+
+    Assets
+      ↓
+    Policies
+      ↓
+    Threats and Risks
+      ↓
+    Security Controls
+      ↓
+    Secure Design
+      ↓
+    Implementation
+      ↓
+    Assessment
+      ↓
+    Monitoring
+      ↓
+    Change Management
+      ↓
+    Continuous Improvement

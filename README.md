@@ -53,30 +53,48 @@ The goal is to build skills that transfer beyond a single TryHackMe room.
 ## Long-Term Direction
 
 ```text
-Foundations
-    ↓
-Reconnaissance
-    ↓
-Nmap & Enumeration
-    ↓
-Port / Service Enumeration
-    ↓
-Web Enumeration
-    ↓
-Web Technologies
-    ↓
-Burp Suite
-    ↓
-Web Vulnerabilities
-    ↓
-CTFs / Vulnerable Labs
-    ↓
-VDP Practice
-    ↓
-Bug Bounty Methodology
-    ↓
-Paid Bug Bounty Hunting
-    ↓
-Advanced Web Security
-    ↓
-Specialization
+Cybersecurity Foundations
+        ↓
+Computer & Operating System Fundamentals
+        ↓
+Networking Fundamentals
+        ↓
+Web & Internet Fundamentals
+        ↓
+Security Fundamentals
+        ↓
+Security Engineering Fundamentals
+        ↓
+Identity & Access Management
+        ↓
+Cryptography
+        ↓
+Network & System Security
+        ↓
+Software & Application Security
+        ↓
+Vulnerability Management
+        ↓
+Security Monitoring & Incident Response
+        ↓
+Cloud Security
+        ↓
+DevSecOps & Security Automation
+        ↓
+Practical CTFs / Vulnerable Labs
+        ↓
+Security Engineering Projects
+        ↓
+AI / ML Fundamentals
+        ↓
+AI Security Fundamentals
+        ↓
+LLM Security
+        ↓
+RAG & AI Application Security
+        ↓
+AI Threat Modeling & Secure AI Architecture
+        ↓
+AI Security Labs / CTFs
+        ↓
+Security Engineering + AI Security

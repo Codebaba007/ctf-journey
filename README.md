@@ -11,8 +11,8 @@ The focus is on **understanding and practical ability rather than simply complet
 ## Current Position
 
 **Phase:** Phase 1 — Foundations  
-**Current Day:** Day 06  
-**Current Topic:** Active Reconnaissance
+**Current Day:** Day 14
+**Current Topic:** Security Engineering
 
 ## Roadmap
 

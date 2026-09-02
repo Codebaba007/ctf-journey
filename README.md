@@ -8,63 +8,6 @@ Build strong practical cybersecurity, networking, Linux, and web security skills
 
 The focus is on **understanding and practical ability rather than simply completing rooms**.
 
-## Current Position
-
-**Phase:** Phase 1 — Foundations  
-**Current Day:** Day 14
-**Current Topic:** Security Engineering
-
-## Roadmap
-
-### Phase 1 — Foundations (Months 1–3)
-
-- [x] Linux & Computer Basics
-- [x] Networking
-- [x] Security Fundamentals
-- [x] Passive Reconnaissance
-- [x] Active Reconnaissance
-- [X] Nmap & Enumeration
-- [ ] Port / Service Enumeration
-
-### Phase 2 — Web Track + First Real Exposure (Months 3–6)
-
-- [ ] Web Enumeration
-- [ ] Web Technologies
-- [ ] Burp Suite
-- [ ] OWASP Top 10 — Hands-on
-- [ ] Read Real Disclosed Bug Bounty Reports
-
-### Phase 3 — Calibration (Months 6–8)
-
-- [ ] Hack The Box
-- [ ] PortSwigger Web Security Academy
-- [ ] Unpaid VDP Hunting
-- [ ] Report Writing
-
-### Phase 4 — Methodology + Paid Hunting (Months 8–12)
-
-- [ ] Bug Bounty Methodology
-- [ ] Paid Bug Bounty Programs
-- [ ] Consistent Weekly Hunting
-
-### Phase 5 — Specialization (Month 12+)
-
-- [ ] Advanced Web Security
-- [ ] Choose a Specialization
-- [ ] Advanced Bug Bounty Hunting
-
-## Daily Progress
-
-| Day | Topic | Status |
-|---:|---|---|
-| 01 | Pre Security Foundations | ✅ Completed |
-| 02 | Linux / Computer Fundamentals | ✅ Completed |
-| 03 | Networking Fundamentals | ✅ Completed |
-| 04 | Security / CTF Foundations | ✅ Completed |
-| 05 | Passive Reconnaissance | ✅ Completed |
-| 06 | Active Reconnaissance | ✅ Completed |
-| 07 | Nmap & Enumeration | 🔜 Next |
-
 ## TryHackMe
 
 [My TryHackMe Profile](https://tryhackme.com/p/L1QU1D)

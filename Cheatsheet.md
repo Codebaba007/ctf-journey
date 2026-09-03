@@ -2551,3 +2551,563 @@ Both roles are related, but they approach security from different perspectives.
     Change Management
       ↓
     Continuous Improvement
+
+# Day 15–16 — Security Principles, Cryptography Basics & Crack the Hash — Dump
+
+## Security Principles
+
+### Attack Surface Minimisation
+
+Reduce the number of ways an attacker can interact with a system.
+
+Examples:
+
+    Disable unnecessary services
+    Remove unused software
+    Close unnecessary ports
+    Turn off insecure non-critical systems
+
+Example:
+
+    Turn off an insecure, non-critical server
+    → Attack Surface Minimisation
+
+### Least Privilege
+
+Give users and systems only the permissions they need.
+
+Example:
+
+    Sales representative
+        ↓
+    Needs product information
+        ↓
+    Access only products/prices
+
+    → Least Privilege
+
+### Defence in Depth
+
+Use multiple security controls rather than relying on one mechanism.
+
+    Firewall
+       ↓
+    Network Security
+       ↓
+    Authentication
+       ↓
+    Authorization
+       ↓
+    Endpoint Security
+       ↓
+    Monitoring
+
+### Failing Securely
+
+When a system encounters an error, it should fail in a secure state.
+
+    Error
+      ↓
+    Safe failure state
+
+### Separation of Duties
+
+Separate sensitive responsibilities between different people or systems.
+
+Example:
+
+    Person A
+    Request
+
+    Person B
+    Approve
+
+### Preparing for Error and Exception Handling
+
+Systems should safely handle unexpected conditions.
+
+Examples:
+
+    Network failure
+    Power failure
+    Invalid input
+    Hardware failure
+    Unexpected application state
+
+Example:
+
+    ATM handles unexpected network/power failures
+    → Preparing for Error and Exception Handling
+
+### Complete Mediation
+
+Access checks should occur whenever a protected resource is accessed.
+
+    Request Resource
+           ↓
+    Check Authorization
+           ↓
+       Allow / Deny
+
+### Security Economy
+
+Security should be effective while avoiding unnecessary complexity and cost.
+
+### Psychological Acceptability
+
+Security mechanisms should remain usable.
+
+Poor usability can encourage users to bypass security controls.
+
+---
+
+# Cryptography Basics
+
+## Plaintext
+
+Original readable data.
+
+    Hello World
+
+## Ciphertext
+
+Data after encryption.
+
+    Plaintext
+       ↓
+    Encryption
+       ↓
+    Ciphertext
+
+## Encryption
+
+Encryption transforms plaintext into ciphertext using an algorithm and key.
+
+    Plaintext
+        +
+    Key
+        +
+    Encryption Algorithm
+        ↓
+    Ciphertext
+
+## Decryption
+
+    Ciphertext
+        +
+    Key
+        +
+    Decryption Algorithm
+        ↓
+    Plaintext
+
+## Symmetric Encryption
+
+Uses the same secret key for encryption and decryption.
+
+    Secret Key
+        ↓
+    Plaintext → Encrypt → Ciphertext
+                         ↓
+                      Decrypt
+                         ↓
+                      Plaintext
+
+Main challenge:
+
+    Securely sharing the secret key
+
+## Asymmetric Encryption
+
+Uses two related keys:
+
+    Public Key
+    Private Key
+
+Simplified encryption flow:
+
+    Message
+       ↓
+    Encrypt with recipient's Public Key
+       ↓
+    Ciphertext
+       ↓
+    Decrypt with recipient's Private Key
+       ↓
+    Message
+
+The private key must remain secret.
+
+---
+
+# Caesar Cipher
+
+A substitution cipher where letters are shifted by a chosen amount.
+
+Example with shift 3:
+
+    A → D
+    B → E
+    C → F
+
+The shift is not universally fixed.
+
+Possible shifts:
+
+    1
+    2
+    3
+    ...
+    25
+
+A Caesar cipher can therefore be brute-forced by trying the possible shifts.
+
+---
+
+# Hashing
+
+Hashing transforms input into a fixed-size value.
+
+    Input
+      ↓
+    Hash Function
+      ↓
+    Hash
+
+Hashing vs encryption:
+
+    Encryption
+    → Designed to be decrypted
+
+    Hashing
+    → Designed as a one-way transformation
+
+---
+
+# Crack the Hash
+
+## Hash Cracking Workflow
+
+    Target Hash
+         ↓
+    Identify Hash Type
+         ↓
+    Select Hashcat Mode
+         ↓
+    Select Attack Strategy
+         ↓
+    Choose Candidate Source
+         ↓
+    Run Hashcat
+         ↓
+    Find Matching Candidate
+         ↓
+    Verify
+
+---
+
+# Hashcat
+
+General syntax:
+
+    hashcat -m <mode> <hash-file> <wordlist>
+
+Example:
+
+    hashcat -m 0 hash.txt rockyou.txt
+
+Show recovered hashes:
+
+    hashcat -m <mode> <hash-file> --show
+
+Display help:
+
+    hashcat --help
+
+Display example hashes:
+
+    hashcat --example-hashes
+
+---
+
+# Hashcat Modes
+
+    0       MD5
+    100     SHA-1
+    900     MD4
+    1000    NTLM
+    1400    SHA-256
+    160     HMAC-SHA1
+    1800    SHA-512 Crypt
+    3200    bcrypt
+
+---
+
+# Git Bash + Hashcat
+
+Windows installation:
+
+    C:\hashcat-7.1.2
+
+Git Bash:
+
+    cd /c/hashcat-7.1.2
+
+Run Hashcat:
+
+    ./hashcat.exe
+
+---
+
+# RockYou
+
+RockYou is a password wordlist.
+
+Typical usage:
+
+    ./hashcat.exe -m 0 ~/Desktop/hash.txt ~/Desktop/rockyou.txt
+
+---
+
+# Wordlist Commands
+
+Count entries:
+
+    wc -l ~/Desktop/rockyou.txt
+
+View first entries:
+
+    head ~/Desktop/rockyou.txt
+
+View last entries:
+
+    tail ~/Desktop/rockyou.txt
+
+Search for a word:
+
+    grep "password" ~/Desktop/rockyou.txt
+
+---
+
+# Filter RockYou
+
+Create a list containing only four-character alphabetic words:
+
+    grep -E '^[a-zA-Z]{4}$' ~/Desktop/rockyou.txt > ~/Desktop/rockyou4.txt
+
+Check its size:
+
+    wc -l ~/Desktop/rockyou4.txt
+
+View it:
+
+    head ~/Desktop/rockyou4.txt
+
+Result:
+
+    9786 entries
+
+---
+
+# MD5
+
+Hashcat mode:
+
+    0
+
+Command:
+
+    ./hashcat.exe -m 0 ~/Desktop/hash.txt ~/Desktop/rockyou.txt
+
+---
+
+# SHA-1
+
+Hashcat mode:
+
+    100
+
+Command:
+
+    ./hashcat.exe -m 100 ~/Desktop/hash.txt ~/Desktop/rockyou.txt
+
+---
+
+# MD4
+
+Hashcat mode:
+
+    900
+
+Command:
+
+    ./hashcat.exe -m 900 ~/Desktop/hash.txt ~/Desktop/rockyou.txt
+
+---
+
+# NTLM
+
+Hashcat mode:
+
+    1000
+
+Command:
+
+    ./hashcat.exe -m 1000 ~/Desktop/hash.txt ~/Desktop/rockyou.txt
+
+---
+
+# SHA-256
+
+Hashcat mode:
+
+    1400
+
+Command:
+
+    ./hashcat.exe -m 1400 ~/Desktop/hash.txt ~/Desktop/rockyou.txt
+
+---
+
+# HMAC-SHA1
+
+Hashcat mode:
+
+    160
+
+HMAC attacks require the correct input format for the selected Hashcat mode.
+
+---
+
+# SHA-512 Crypt
+
+Hashcat mode:
+
+    1800
+
+Common format:
+
+    $6$...
+
+Command:
+
+    ./hashcat.exe -m 1800 ~/Desktop/hash.txt ~/Desktop/rockyou.txt
+
+---
+
+# bcrypt
+
+Hashcat mode:
+
+    3200
+
+Common format:
+
+    $2y$...
+
+Command:
+
+    ./hashcat.exe -m 3200 ~/Desktop/hash.txt ~/Desktop/rockyou4.txt
+
+Bcrypt is intentionally slow, so reducing the candidate space can make a major difference.
+
+---
+
+# Hashcat Potfile
+
+If Hashcat reports:
+
+    All hashes found as potfile and/or empty entries!
+
+Check the stored result:
+
+    ./hashcat.exe -m <mode> <hash-file> --show
+
+Hashcat stores previously cracked hashes in its potfile.
+
+---
+
+# Crack the Hash — Level 1 Results
+
+    1. MD5
+       easy
+
+    2. SHA-1
+       password123
+
+    3. SHA-256
+       letmein
+
+    4. bcrypt
+       bleh
+
+    5. MD4
+       Eternity22
+
+---
+
+# Crack the Hash — Level 2 Results
+
+    1. SHA-256
+       paule
+
+    2. NTLM
+       n63umy8lkf4i
+
+    3. SHA512crypt
+       waka99
+
+    4. HMAC-SHA1
+       481616481616
+
+---
+
+# Core Pattern
+
+    Security Principle
+            ↓
+    Cryptography Concept
+            ↓
+    Hash Identification
+            ↓
+    Hashcat Mode
+            ↓
+    Attack Strategy
+            ↓
+    Candidate Search
+            ↓
+    Cracked Password
+            ↓
+    Verification
+
+---
+
+# Key Commands
+
+    cd /c/hashcat-7.1.2
+
+    ./hashcat.exe
+
+    ./hashcat.exe -m 0 ~/Desktop/hash.txt ~/Desktop/rockyou.txt
+
+    ./hashcat.exe -m 100 ~/Desktop/hash.txt ~/Desktop/rockyou.txt
+
+    ./hashcat.exe -m 900 ~/Desktop/hash.txt ~/Desktop/rockyou.txt
+
+    ./hashcat.exe -m 1000 ~/Desktop/hash.txt ~/Desktop/rockyou.txt
+
+    ./hashcat.exe -m 1400 ~/Desktop/hash.txt ~/Desktop/rockyou.txt
+
+    ./hashcat.exe -m 1800 ~/Desktop/hash.txt ~/Desktop/rockyou.txt
+
+    ./hashcat.exe -m 3200 ~/Desktop/hash.txt ~/Desktop/rockyou4.txt
+
+    ./hashcat.exe -m <mode> <hash-file> --show
+
+    grep -E '^[a-zA-Z]{4}$' ~/Desktop/rockyou.txt > ~/Desktop/rockyou4.txt
+
+    wc -l ~/Desktop/rockyou4.txt
+
+    head ~/Desktop/rockyou4.txt
+
+    tail ~/Desktop/rockyou.txt

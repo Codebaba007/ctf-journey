@@ -3111,3 +3111,252 @@ Hashcat stores previously cracked hashes in its potfile.
     head ~/Desktop/rockyou4.txt
 
     tail ~/Desktop/rockyou.txt
+# Cybersecurity Cheatsheet
+
+...
+
+# Day 16–17 — Web Application Security
+
+## Identification vs Authentication vs Authorization
+
+Identification
+→ Identifies a user uniquely.
+
+Authentication
+→ Verifies that the user is who they claim to be.
+
+Authorization
+→ Determines what the authenticated user is allowed to access or do.
+
+Remember:
+
+Identification → Who is this?
+Authentication → Prove who you are.
+Authorization → What are you allowed to do?
+
+---
+
+## Common Web Application Security Risks
+
+### Identification & Authentication Failures
+
+Examples:
+
+- Unlimited login attempts
+- Brute-forceable authentication
+- Weak passwords
+- Poor credential handling
+
+---
+
+### Broken Access Control
+
+Users should only be able to access resources and functionality that their permissions allow.
+
+Examples:
+
+- Accessing another user's account
+- Modifying another user's resources
+- Accessing authenticated pages without authentication
+- Accessing administrator functionality as a normal user
+
+Principle:
+
+Least Privilege
+→ Give users only the permissions they actually need.
+
+---
+
+## IDOR
+
+IDOR
+→ Insecure Direct Object Reference
+
+IDOR is a type of Broken Access Control vulnerability.
+
+Example:
+
+/profile?id=100
+
+Changing the object reference:
+
+/profile?id=101
+
+If the server returns another user's resource without verifying authorization, the application may be vulnerable to IDOR.
+
+Important:
+
+The problem is NOT simply that an ID can be changed.
+
+The problem is:
+
+User-controlled object reference
+        ↓
+Server processes reference
+        ↓
+Missing/incorrect authorization check
+        ↓
+Unauthorized resource access
+
+Always ask:
+
+- What resource does this identifier reference?
+- Who owns that resource?
+- Should the current user have access?
+- Does the server verify authorization?
+
+---
+
+## Horizontal Privilege Escalation
+
+Horizontal privilege escalation
+→ Accessing another user's resources while remaining at the same privilege level.
+
+Example:
+
+User A
+  ↓
+User B's profile/data
+
+IDOR can lead to horizontal privilege escalation.
+
+---
+
+## Vertical Privilege Escalation
+
+Vertical privilege escalation
+→ A lower-privileged user gains access to higher-privileged functionality.
+
+Example:
+
+Normal User
+  ↓
+Administrator functionality
+
+---
+
+## Injection
+
+Injection occurs when untrusted user input is processed as code or commands because proper validation/sanitization is missing.
+
+Core idea:
+
+Untrusted input
+        ↓
+Application processes it unsafely
+        ↓
+Input may be interpreted as instructions
+
+---
+
+## Cryptographic Failures
+
+Examples:
+
+- Sensitive data transmitted in cleartext
+- Weak cryptographic algorithms
+- Weak/default cryptographic keys
+- Poor protection of sensitive information
+
+Sensitive information should be protected during transmission and storage.
+
+---
+
+## Server-Side Authorization
+
+Never assume a frontend restriction is a security boundary.
+
+Example:
+
+Hidden admin button
+≠
+User cannot access admin functionality
+
+The server must independently verify authorization for protected resources and actions.
+
+---
+
+## Web Application Access-Control Mental Model
+
+When investigating an application:
+
+User
+ ↓
+Requested resource
+ ↓
+Requested action
+ ↓
+Authorization check
+ ↓
+Allow / Deny
+
+For an object reference:
+
+Parameter
+ ↓
+Referenced resource
+ ↓
+Resource owner
+ ↓
+Authorization check
+ ↓
+Allow / Deny
+
+---
+
+## Web Security Investigation Questions
+
+When testing an authorized web application:
+
+- What functionality exists?
+- What resources are exposed?
+- What parameters control those resources?
+- What identifies each resource?
+- Who owns the resource?
+- What should the current user be allowed to access?
+- Does the server verify authorization?
+- What happens when a controlled identifier changes?
+- Can one user access another user's resource?
+- Can a normal user access privileged functionality?
+
+---
+
+## Key Mental Model
+
+Do not think:
+
+"Can I change this parameter?"
+
+Think:
+
+"What does this parameter control?"
+        ↓
+"What resource does it reference?"
+        ↓
+"Who should be allowed to access it?"
+        ↓
+"Does the server verify that permission?"
+        ↓
+"What happens if the value changes?"
+
+---
+
+# Day 16–17 Completed
+
+Room:
+Web Application Security
+
+Main concepts added:
+
+- Identification
+- Authentication
+- Authorization
+- Broken Access Control
+- Least Privilege
+- IDOR
+- Horizontal Privilege Escalation
+- Vertical Privilege Escalation
+- Injection
+- Cryptographic Failures
+- Server-side authorization
+- Access-control testing mindset    
